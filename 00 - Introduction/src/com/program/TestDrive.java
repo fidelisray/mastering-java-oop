@@ -2,25 +2,35 @@ package com.program;
 
 class Mahasiswa {
 
-    String nama_mhs;
-    String NIM_mhs;
-    String prodi_mhs;
-    String fakultas_mhs;
+    // attributes
+    String nama;
+    String NIM;
+    String prodi;
+    String fakultas;
 
-    Mahasiswa(String nama, String NIM, String prodi, String fakultas) {
-        nama_mhs = nama;
-        NIM_mhs = NIM;
-        prodi_mhs = prodi;
-        fakultas_mhs = fakultas;
+    // constructor
+    Mahasiswa(String nama, String NIM, String fakultas, String prodi) {
+        this.nama = nama;
+        this.NIM = NIM;
+        this.prodi = prodi;
+        this.fakultas = fakultas;
+    }
+
+    public void display() {
+
+        System.out.println("Nama     : " + this.nama);
+        System.out.println("NIM      : " + this.NIM);
+        System.out.println("Fakultas : " + this.fakultas);
+        System.out.println("Prodi    : " + this.prodi);
     }
 }
 
 public class TestDrive {
     public static void main(String[] args) throws Exception {
         
-        Mahasiswa pico = new Mahasiswa("Pico", "18.K1.0062", "Teknik Informatika", "Ilmu Komputer");
+        Mahasiswa pico = new Mahasiswa("Pico", "18.K1.0062", "Ilmu Komputer", "Teknik Informatika");
 
-        System.out.println(pico.nama_mhs);
-        System.out.println(pico.prodi_mhs);
+        pico.display();
+        // System.out.println(pico.nama_mhs);
     }
 }
