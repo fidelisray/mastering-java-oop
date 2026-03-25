@@ -10,18 +10,43 @@ class Mahasiswa {
 
     // constructor
     Mahasiswa(String nama, String NIM, String fakultas, String prodi) {
-        this.nama = nama;
-        this.NIM = NIM;
+        // this.nama = nama;
+        // this.NIM = NIM;
+        // this.prodi = prodi;
+        // this.fakultas = fakultas;
+        setNama(nama);
+        setNIM(NIM);
         this.prodi = prodi;
         this.fakultas = fakultas;
     }
 
-    public void display() {
+    void setNama(String nama) {
+        this.nama = nama;
+    }
 
-        System.out.println("Nama     : " + this.nama);
-        System.out.println("NIM      : " + this.NIM);
+    void setNIM(String NIM) {
+        this.NIM = NIM;
+    }
+
+    String getNama() {
+        return this.nama;
+    }
+
+    String getNIM() {
+        return this.NIM;
+    }
+
+    String greeting(String waktu) {
+        return "Hallo " + this.nama + ", Selamat " + waktu;
+    }
+
+    void display() {
+
+        System.out.println("Nama     : " + this.getNama());
+        System.out.println("NIM      : " + this.getNIM());
         System.out.println("Fakultas : " + this.fakultas);
         System.out.println("Prodi    : " + this.prodi);
+        System.out.println(greeting("Pagi"));
     }
 }
 
