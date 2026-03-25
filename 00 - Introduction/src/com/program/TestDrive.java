@@ -1,4 +1,6 @@
-public class App {
+package com.program;
+
+public class TestDrive {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
     }
