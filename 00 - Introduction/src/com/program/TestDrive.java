@@ -7,6 +7,7 @@ class Mahasiswa {
     String NIM;
     String prodi;
     String fakultas;
+    private static String universitas = "Soegijapranata Catholic University";
 
     // constructor
     Mahasiswa(String nama, String NIM, String fakultas, String prodi) {
@@ -46,6 +47,7 @@ class Mahasiswa {
         System.out.println("NIM      : " + this.getNIM());
         System.out.println("Fakultas : " + this.fakultas);
         System.out.println("Prodi    : " + this.prodi);
+        System.out.println("Kampus   : " + Mahasiswa.universitas);
         System.out.println(greeting("Pagi"));
     }
 }
