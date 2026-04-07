@@ -21,12 +21,24 @@ class Player {
         this.weapon = newWeapon;
 
         this.accumulateAttack += this.weapon.damage;
+        System.out.println(this.name + " memakai senjata " + this.weapon.name);
+        playerInfo();
     }
 
     public void equipArmor(Armor newArmor) {
         this.armor = newArmor;
 
         this.health += this.armor.armorHealth;
+        System.out.println(this.name + " memakai armor " + this.armor.name);
+        playerInfo();
+    }
+
+    public void attack(Player enemy) {
+        enemy.health -= this.accumulateAttack;
+
+        System.out.println(this.name + " menyerang " + enemy.name);
+        System.out.println("Nyawa " + this.name + " = " + this.health);
+        System.out.println("Nyawa " + enemy.name + " = " + enemy.health);
     }
 
     public void playerInfo() {
@@ -34,6 +46,7 @@ class Player {
         System.out.println("Health       : " + this.health);
         System.out.println("Basic Attack : " + this.basicAttack);
         System.out.println("Total Attack : " + this.accumulateAttack);
+        System.out.println();
     }
 }
 
@@ -80,14 +93,33 @@ public class TestDrive {
         Armor bodyArmor = new Armor("Body Armor", 80);
 
         pico.playerInfo();
+        System.out.println();
         usp.weaponInfo();
+        System.out.println();
         bodyArmor.armorInfo();
-
+        System.out.println();
+        
         // pakai senjata dan armor
         pico.equipWeapon(usp);
         pico.equipArmor(bodyArmor);
-
+        
         System.out.println();
-        pico.playerInfo();
+        
+        Player blacky = new Player("Mr. Black", 100, 35);
+        Weapon deagle = new Weapon("Deagle", "Heavy Pistol", 25);
+        
+        blacky.playerInfo();
+        System.out.println();
+        deagle.weaponInfo();
+        System.out.println();
+
+        blacky.equipArmor(bodyArmor);
+        blacky.equipWeapon(deagle);
+
+        System.out.println("=============================");
+        System.out.println("Pertarungan dimulai");
+
+        pico.attack(blacky);
+        blacky.attack(pico);
     }
 }
