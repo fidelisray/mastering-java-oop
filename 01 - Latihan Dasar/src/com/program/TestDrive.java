@@ -5,6 +5,8 @@ class Player {
     double health;
     double basicAttack;
 
+    double accumulateAttack;
+
     Weapon weapon;
     Armor armor;
 
@@ -12,12 +14,26 @@ class Player {
         this.name = name;
         this.health = health;
         this.basicAttack = basicAttack;
+        this.accumulateAttack = basicAttack;
     }
 
-    public void player_info() {
+    public void equipWeapon(Weapon newWeapon) {
+        this.weapon = newWeapon;
+
+        this.accumulateAttack += this.weapon.damage;
+    }
+
+    public void equipArmor(Armor newArmor) {
+        this.armor = newArmor;
+
+        this.health += this.armor.armorHealth;
+    }
+
+    public void playerInfo() {
         System.out.println("Player Name  : " + this.name);
         System.out.println("Health       : " + this.health);
         System.out.println("Basic Attack : " + this.basicAttack);
+        System.out.println("Total Attack : " + this.accumulateAttack);
     }
 }
 
@@ -32,7 +48,7 @@ class Weapon {
         this.damage = damage;
     }
 
-    public void weapon_info() {
+    public void weaponInfo() {
         System.out.println("Wapon Name   : " + this.name);
         System.out.println("Weapon Type  : " + this.weaponType);
         System.out.println("Damage       : " + this.damage);
@@ -48,7 +64,7 @@ class Armor {
         this.armorHealth = armorHealth;
     }
 
-    public void armor_info() {
+    public void armorInfo() {
         System.out.println("Armor Name   : " + this.name);
         System.out.println("Armor Health : " + this.armorHealth);
     }
@@ -63,8 +79,15 @@ public class TestDrive {
 
         Armor bodyArmor = new Armor("Body Armor", 80);
 
-        pico.player_info();
-        usp.weapon_info();
-        bodyArmor.armor_info();
+        pico.playerInfo();
+        usp.weaponInfo();
+        bodyArmor.armorInfo();
+
+        // pakai senjata dan armor
+        pico.equipWeapon(usp);
+        pico.equipArmor(bodyArmor);
+
+        System.out.println();
+        pico.playerInfo();
     }
 }
