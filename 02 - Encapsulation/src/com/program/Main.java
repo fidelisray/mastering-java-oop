@@ -23,6 +23,38 @@ class Enkapsulasi {
     }
 }
 
+class Lingkaran {
+    private double diameter;
+    private double jariJari;
+
+    public Lingkaran(double diameter) {
+        this.setDiameter(diameter);
+    }
+
+
+    private void setDiameter(double diameter) {
+        this.diameter = diameter;
+        this.setJariJari(diameter / 2);
+    }
+
+    private void setJariJari(double jariJari) {
+        this.jariJari = jariJari;
+    }
+
+    public double getDiameter() {
+        return this.diameter;
+    }
+
+    public double getJariJari() {
+        return this.jariJari;
+    }
+
+    public void displayInfo() {
+        // System.out.printf("Diameter Lingkaran : %1$.2f, Jari Jari Lingkaran : %2$.2f", this.getDiameter(), this.getJariJari());
+        System.out.printf("Diameter Lingkaran : %1$.2f, Jari Jari Lingkaran : %2$.2f", this.diameter, this.jariJari);
+        System.out.println();
+    }
+}
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -43,5 +75,9 @@ public class Main {
         objek1.setIntPrivate(180); // set nilai intPrivate menggunakan method SETTER
 
         objek1.displayInfo(); // tampilkan kondisi setelah nilai intPrivate diubah
+
+        // Mini Latihan
+        Lingkaran lingkaran1 = new Lingkaran(50);
+        lingkaran1.displayInfo();
     }
 }
