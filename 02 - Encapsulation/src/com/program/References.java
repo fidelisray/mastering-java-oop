@@ -19,7 +19,7 @@ class Buku {
 
 
 public class References {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         
         Buku buku1 = new Buku("Rich Dad, Poor Dad", "Robert Kyosaki");
 
