@@ -4,7 +4,7 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Dracula Theme",
     "editor.fontSize": 18,
     "terminal.integrated.fontSize": 18,
     "window.zoomLevel": 1.2,
