@@ -5,9 +5,9 @@ class Player {
     private int baseHealth;
     private int baseAttack;
 
-    private int accumulateHealth = 0;
+    private int totalHealth = 0;
 
-    private int incrementAttack = 0;
+    private int attackPower = 0;
 
     private Armor armor;
     private Weapon weapon;
@@ -21,24 +21,24 @@ class Player {
     public void equipArmor(Armor armor) {
         if (this.armor == null){
             this.armor = armor;
-            this.accumulateHealth = this.baseHealth + armor.getAddHealth();
+            this.totalHealth = this.baseHealth + armor.getAddHealth();
         }
     }
 
     public void equipWeapon(Weapon weapon) {
         if (this.weapon == null) {
             this.weapon = weapon;
-            this.incrementAttack = this.baseAttack + weapon.getAddDamage();
+            this.attackPower = this.baseAttack + weapon.getAddDamage();
         }
     }
 
     public void info() {
-        System.out.println("Nama Player         : " + this.name);
-        System.out.println("Base Health         : " + this.baseHealth);
-        System.out.println("Base Attack         : " + this.baseAttack);
+        System.out.println("Nama Player  : " + this.name);
+        System.out.println("Base Health  : " + this.baseHealth);
+        System.out.println("Base Attack  : " + this.baseAttack);
         System.out.println("--------------------------------");
-        System.out.println("Total Health        : " + this.accumulateHealth);
-        System.out.println("Total Attack Damage : " + this.incrementAttack);
+        System.out.println("Total Health : " + this.totalHealth);
+        System.out.println("Attack Power : " + this.attackPower);
         System.out.println("\n");
     }
 }
