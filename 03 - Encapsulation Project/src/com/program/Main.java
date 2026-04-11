@@ -13,9 +13,45 @@ class Player {
     private Weapon weapon;
 
     public Player(String name, int baseHealth, int baseAttack) {
+        this.setName(name);
+        this.setBaseHealth(baseHealth);
+        this.setBaseAttack(baseAttack);
+    }
+
+    private void setName(String name) {
         this.name = name;
+    }
+
+    private void setBaseHealth(int baseHealth) {
         this.baseHealth = baseHealth;
+    }
+
+    private void setBaseAttack(int baseAttack) {
         this.baseAttack = baseAttack;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getBaseHealth() {
+        return this.baseHealth;
+    }
+
+    public int getBaseAttack() {
+        return this.baseAttack;
+    }
+
+    public int getTotalHealth() {
+        return this.totalHealth;
+    }
+
+    public int getAttackPower() {
+        return this.attackPower;
+    }
+
+    public int getCurrentLevel() {
+        return this.level;
     }
 
     public void equipArmor(Armor armor) {
@@ -35,6 +71,30 @@ class Player {
     public void levelUp() {
         this.level += 1;
         this.attackPower += this.level * 10;
+    }
+
+    public void attack(Player opponent) {
+        // calculate damage
+        int damage = this.getAttackPower();
+        // print event
+        System.out.println("Player " + this.getName() + " Attacking " + opponent.getName() + ", damage = " + damage);
+
+        opponent.defence(damage);
+    }
+
+    public void defence(int damage) {
+        // calculate delta damage
+
+        int deffencePower = this.armor.getDeffencePower();
+        int deltaDamage;
+
+        if (damage > deffencePower) {
+            deltaDamage = damage - deffencePower;
+        } else {
+            deltaDamage = 0;
+        }
+
+        this.totalHealth -= deltaDamage;
     }
 
     public void info() {
@@ -61,6 +121,10 @@ class Armor {
 
     public int getAddHealth() {
         return this.strength * 2 + this.health;
+    }
+
+    public int getDeffencePower() {
+        return this.strength * 10;
     }
 
     public void info() {
@@ -110,5 +174,22 @@ public class Main {
 
         sparky.levelUp();
         sparky.info();
+
+        System.out.println("=========================================");
+        System.out.println("\t\tPertarungan");
+        System.out.println("=========================================");
+
+        Player pico = new Player("Pico Margondez", 100, 15);
+        Weapon mac10 = new Weapon("Mac-10", "Automatic Gun", 15);
+
+        pico.equipArmor(bodyArmor);
+        pico.equipWeapon(mac10);
+        
+        sparky.info();
+        pico.info();
+        
+        sparky.attack(pico);
+        sparky.info();
+        pico.info();
     }
 }
