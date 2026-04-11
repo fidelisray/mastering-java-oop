@@ -7,6 +7,8 @@ class Player {
 
     private int accumulateHealth = 0;
 
+    private int incrementAttack = 0;
+
     private Armor armor;
     private Weapon weapon;
 
@@ -23,11 +25,21 @@ class Player {
         }
     }
 
+    public void equipWeapon(Weapon weapon) {
+        if (this.weapon == null) {
+            this.weapon = weapon;
+            this.incrementAttack = this.baseAttack + weapon.getAddDamage();
+        }
+    }
+
     public void info() {
-        System.out.println("Nama Player  : " + this.name);
-        System.out.println("Base Health  : " + this.baseHealth);
-        System.out.println("Base Attack  : " + this.baseAttack);
-        System.out.println("Total Health : " + this.accumulateHealth + "\n");
+        System.out.println("Nama Player         : " + this.name);
+        System.out.println("Base Health         : " + this.baseHealth);
+        System.out.println("Base Attack         : " + this.baseAttack);
+        System.out.println("--------------------------------");
+        System.out.println("Total Health        : " + this.accumulateHealth);
+        System.out.println("Total Attack Damage : " + this.incrementAttack);
+        System.out.println("\n");
     }
 }
 
@@ -63,6 +75,16 @@ class Weapon {
         this.weaponType = weaponType;
         this.damage = damage;
     }
+
+    public int getAddDamage() {
+        return this.damage;
+    }
+
+    public void info() {
+        System.out.println("Weapon Name     : " + this.weaponName);
+        System.out.println("Weapon Type     : " + this.weaponType);
+        System.out.println("Weapon Damage   : " + this.damage);
+    }
 }
 
 public class Main {
@@ -75,6 +97,10 @@ public class Main {
         bodyArmor.info();
         
         sparky.equipArmor(bodyArmor);
+        sparky.info();
+
+        Weapon tec9 = new Weapon("Tec 9", "Micro SMG", 25);
+        sparky.equipWeapon(tec9);
         sparky.info();
     }
 }
