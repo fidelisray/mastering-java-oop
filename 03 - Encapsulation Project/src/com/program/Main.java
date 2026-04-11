@@ -6,8 +6,8 @@ class Player {
     private int baseAttack;
 
     private int totalHealth = 0;
-
     private int attackPower = 0;
+    private int level = 1;
 
     private Armor armor;
     private Weapon weapon;
@@ -30,6 +30,11 @@ class Player {
             this.weapon = weapon;
             this.attackPower = this.baseAttack + weapon.getAddDamage();
         }
+    }
+
+    public void levelUp() {
+        this.level += 1;
+        this.attackPower += this.level * 10;
     }
 
     public void info() {
@@ -101,6 +106,9 @@ public class Main {
 
         Weapon tec9 = new Weapon("Tec 9", "Micro SMG", 25);
         sparky.equipWeapon(tec9);
+        sparky.info();
+
+        sparky.levelUp();
         sparky.info();
     }
 }
