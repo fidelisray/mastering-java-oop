@@ -114,9 +114,25 @@ class Armor {
     private int health;
 
     public Armor(String armorName, int strength, int health) {
+        this.setArmorName(armorName);
+        this.setStrength(strength);
+        this.setHealth(health);
+    }
+
+    private void setArmorName(String armorName) {
         this.armorName = armorName;
+    }
+
+    private void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    private void setHealth(int health) {
         this.health = health;
+    }
+
+    public String getArmorName() {
+        return this.armorName;
     }
 
     public int getAddHealth() {
@@ -140,9 +156,33 @@ class Weapon {
     private int damage;
 
     public Weapon(String weaponName, String weaponType, int damage) {
+        this.setWeaponName(weaponName);
+        this.setWeaponType(weaponType);
+        this.setDamage(damage);
+    }
+
+    private void setWeaponName(String weaponName) {
         this.weaponName = weaponName;
+    }
+
+    private void setWeaponType(String weaponType) {
         this.weaponType = weaponType;
+    }
+
+    private void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public String getWeaponName() {
+        return this.weaponName;
+    }
+
+    public String getWeaponType() {
+        return this.weaponType;
+    }
+
+    public int getWeaponDamage() {
+        return this.damage;
     }
 
     public int getAddDamage() {
