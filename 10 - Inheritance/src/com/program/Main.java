@@ -1,5 +1,7 @@
 package com.program;
 
+// inheritance adalah hubungan 'is_a'
+
 
 public class Main {
     public static void main(String[] args) throws Exception {
