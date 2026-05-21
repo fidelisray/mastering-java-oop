@@ -10,5 +10,8 @@ public class Main {
         Assasin karina = new Assasin("Karina", 100);
 
         karina.info();
+
+        // Membuat object class Hero
+        // Hero heroKu = new Hero("My Hero", 100); // Cannot instantiate the type Hero
     }
 }
