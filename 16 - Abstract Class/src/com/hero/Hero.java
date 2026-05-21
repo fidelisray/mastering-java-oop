@@ -26,6 +26,13 @@ public abstract class Hero {
         return this.health;
     }
 
+    // abstract method
+    public abstract void healUp();
+
+    public void addHealth(double deltaHealth) {
+        this.health += deltaHealth;
+    }
+
     public void info() {
         System.out.println("Hero Name : " + this.getName());
         System.out.println("Health    : " + this.getHealth());

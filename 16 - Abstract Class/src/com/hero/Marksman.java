@@ -1,13 +1,13 @@
 package com.hero;
 
-public class Mage extends Hero {
+public class Marksman extends Hero {
     
-    public Mage(String name, double health) {
+    public Marksman(String name, double health) {
         super(name, health);
     }
 
     public void healUp() {
-        double inputHealth = 15;
+        double inputHealth = 25;
 
         System.out.println("\n----------- " + this.getName() + " Healing Up " + inputHealth);
 
